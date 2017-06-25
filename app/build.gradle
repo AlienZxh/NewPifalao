@@ -134,6 +134,8 @@ dependencies {
     //ui
     compile "com.shizhefei:CoolRefreshView:$rootProject.coolRefreshViewVersion"
     compile "com.github.d-max:spots-dialog:$rootProject.spotsDialogVersion"
+    compile "com.facebook.yoga:yoga:$rootProject.yogaVersion"
+    compile "com.facebook.yoga.android:yoga-layout:$rootProject.yogaVersion"
 
 
     androidTestCompile("com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion", {
