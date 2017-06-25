@@ -18,7 +18,7 @@ abstract class ActivityBuilder {
     @Binds
     @IntoMap
     @ActivityKey(LauncherActivity::class)
-    internal abstract fun bindMainActivity(builder: LauncherComponent.Builder): AndroidInjector.Factory<out Activity>
+    internal abstract fun bindLauncherActivity(builder: LauncherComponent.Builder): AndroidInjector.Factory<out Activity>
 
 
 }

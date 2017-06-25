@@ -32,7 +32,7 @@ import com.shizhefei.view.coolrefreshview.CoolRefreshView
 open class App : DaggerApplication() {
 
     protected var processName: String? = null
-    private var refWatcher: RefWatcher? = null
+    private lateinit var refWatcher: RefWatcher
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
@@ -91,7 +91,7 @@ open class App : DaggerApplication() {
         })
     }
 
-    fun getRefWatcher(): RefWatcher? = refWatcher
+    fun getRefWatcher(): RefWatcher = refWatcher
 
 
     override fun applicationInjector(): AndroidInjector<App> = DaggerAppComponent

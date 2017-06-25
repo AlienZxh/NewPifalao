@@ -9,12 +9,14 @@ import android.view.MotionEvent
 import android.view.View
 
 import com.j1j2.pifalao.R
+import dagger.android.DaggerActivity
+import dagger.android.support.DaggerAppCompatActivity
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-class LauncherActivity : AppCompatActivity() {
+class LauncherActivity : DaggerAppCompatActivity() {
     private val mHideHandler = Handler()
     private var mContentView: View? = null
     private val mHidePart2Runnable = Runnable {
