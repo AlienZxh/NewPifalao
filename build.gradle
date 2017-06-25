@@ -67,7 +67,7 @@ allprojects {
         coolRefreshViewVersion = '1.0.1'
 
         glideVersion = '4.0.0-RC1'
-        glidetransformationsVersion = '2.0.1'
+        glidetransformationsVersion = '2.0.2'
         okhttp3integrationVersion = '1.5.0@aar'
 
         pictureSelectorVersion = 'v2.0.7'

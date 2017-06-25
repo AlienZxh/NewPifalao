@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -100,16 +101,15 @@ dependencies {
 //    compile "com.elvishew:xlog:$rootProject.xlogVersion"
 
     compile "com.google.dagger:dagger:$rootProject.daggerVersion"
-    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
     compile "com.google.dagger:dagger-android:$rootProject.daggerVersion"
     compile "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
-    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
 
 
     compile "com.alibaba:arouter-api:$rootProject.arouterApiVersion"
-    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.arouterCompilerVersion"
+    kapt "com.alibaba:arouter-compiler:$rootProject.arouterCompilerVersion"
 
-    compile 'com.google.zxing:core:3.2.1'
     compile "cn.bingoogolapple:bga-qrcodecore:$rootProject.bgaqrcodecoreVersion"
     compile "cn.bingoogolapple:bga-zxing:$rootProject.bgaqrcodecoreVersion"
 
@@ -117,12 +117,10 @@ dependencies {
     compile "jp.wasabeef:glide-transformations:$rootProject.glidetransformationsVersion"
     compile "com.github.bumptech.glide:okhttp3-integration:$rootProject.okhttp3integrationVersion"
 
-    compile "com.blankj:utilcode:$rootProject.okhttp3integrationVersion"
+    compile "com.blankj:utilcode:$rootProject.utilcodeVersion"
 
     //bugly
-    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.0.0
-    compile 'com.tencent.bugly:nativecrashreport:latest.release'
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
     //debug
     compile "com.facebook.stetho:stetho:$rootProject.stethoVersion"
@@ -144,6 +142,10 @@ dependencies {
     testCompile "junit:junit:$rootProject.junitVersion"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
+    compile 'com.google.zxing:core:3.2.1'
+    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    compile 'com.android.support:support-v4:25.3.1'
 }
 repositories {
     mavenCentral()
