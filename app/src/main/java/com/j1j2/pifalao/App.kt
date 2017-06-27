@@ -94,8 +94,6 @@ open class App : DaggerApplication() {
     fun getRefWatcher(): RefWatcher = refWatcher
 
 
-    override fun applicationInjector(): AndroidInjector<App> = DaggerAppComponent
-            .builder()
-            .create(this@App)
+    override fun applicationInjector(): AndroidInjector<App> = DaggerAppComponent.builder().create(this@App)
 
 }
