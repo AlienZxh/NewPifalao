@@ -1,7 +1,10 @@
 package com.j1j2.pifalao.di
 
 
-import android.app.LauncherActivity
+
+import com.j1j2.pifalao.features.launcher.LauncherActivity
+import com.j1j2.pifalao.features.launcher.LauncherPresenter
+import com.j1j2.pifalao.features.launcher.LauncherView
 import dagger.Binds
 import dagger.Module
 
@@ -11,6 +14,9 @@ import dagger.Module
  */
 @Module
 abstract class LauncherModule {
+
     @Binds
-    abstract fun provideLauncherView(launcherActivity: LauncherActivity): LauncherActivity
+    abstract fun provideLauncherView(launcherActivity: LauncherActivity): LauncherView
+
+
 }

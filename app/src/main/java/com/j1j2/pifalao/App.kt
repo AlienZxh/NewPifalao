@@ -18,12 +18,12 @@ import com.tencent.bugly.BuglyStrategy
 
 import com.tencent.bugly.Bugly
 import com.alibaba.android.arouter.launcher.ARouter
+import com.facebook.soloader.SoLoader
 import com.j1j2.pifalao.di.DaggerAppComponent
 import com.shizhefei.view.coolrefreshview.header.MaterialHeader
 import com.shizhefei.view.coolrefreshview.PullHeader
 import com.shizhefei.view.coolrefreshview.IPullHeaderFactory
 import com.shizhefei.view.coolrefreshview.CoolRefreshView
-
 
 
 /**
@@ -45,10 +45,11 @@ open class App : DaggerApplication() {
             return
         }
         initLeakCanary()
+        initUtils()
         processName = getForegroundProcessName()
         if (!isEmpty(processName) && processName.equals(applicationContext.packageName)) {
+            SoLoader.init(this, false)
             initBugly()
-            initUtils()
             initARouter()
             initCoolRefreshView()
         }

@@ -2,8 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.j1j2.pifalao">
 
-    <uses-permission android:name="android.permission.READ_CALENDAR" />
-
     <application
         android:name=".DebugApp"
         tools:replace="android:name" />

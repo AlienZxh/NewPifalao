@@ -26,11 +26,6 @@ allprojects {
 
     ext {
         //android
-
-        androidVersionCode = 1
-        androidVersionName = "0.0.1"
-
-
         ApplicationId = 'com.j1j2.pifalao'
         VersionCode = 17
         VersionName = "0.1.7"
@@ -44,39 +39,32 @@ allprojects {
 
         // App dependencies
         supportLibraryVersion = "26.0.0-alpha1"
+
+        rxjavaVersion = '2.1.1'
+        rxandroidVersion = '2.0.1'
         gsonVersion = "2.8.1"
         okhttpVersion = '3.8.1'
         retrofitVersion = '2.3.0'
-        rxjavaVersion = '2.1.1'
-        rxandroidVersion = '2.0.1'
-
         daggerVersion = '2.11'
 
-        leakCanaryVersion = '1.5.1'
-        stethoVersion = '1.5.0'
-
-        autobundleVersion = '4.1.0'
-
-        spotsDialogVersion = '0.7@aar'
-
-        arouterApiVersion = '1.2.1.1'
-        arouterCompilerVersion = '1.1.2.1'
-
-        bgaqrcodecoreVersion = '1.1.7@aar'
-
-        coolRefreshViewVersion = '1.0.1'
-
-        glideVersion = '4.0.0-RC1'
-        glidetransformationsVersion = '2.0.2'
-        okhttp3integrationVersion = '1.5.0@aar'
-
-        pictureSelectorVersion = 'v2.0.7'
-        xlogVersion = '1.3.0'
+        mosby3Version = '3.0.4'
 
         utilcodeVersion = '1.7.1'
 
+        arouterApiVersion = '1.2.1.1'
+        arouterCompilerVersion = '1.1.2.1'
+        //debug
+        leakCanaryVersion = '1.5.1'
+        stethoVersion = '1.5.0'
+        //ui
+        glideVersion = '4.0.0-RC1'
+        glidetransformationsVersion = '2.0.2'
+        okhttp3integrationVersion = '1.5.0@aar'
+        bgaqrcodecoreVersion = '1.1.7@aar'
+        spotsDialogVersion = '0.7@aar'
+        coolRefreshViewVersion = '1.0.1'
+        pictureSelectorVersion = 'v2.1.0'
         yogaVersion = '1.5.0'
-
         barlibraryVersion = '2.2.4'
 
         espressoVersion = "2.2.2"

@@ -1,50 +1,125 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8" ?>
+<com.facebook.yoga.android.YogaLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yoga="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
-    tools:context="com.j1j2.pifalao.features.launcher.LauncherActivity">
+    yoga:yg_alignContent="center"
+    yoga:yg_alignItems="stretch"
+    yoga:yg_flexDirection="column"
+    yoga:yg_justifyContent="space_around"
+    yoga:yg_wrap="wrap">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="#33b5e5"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500"
+        yoga:yg_marginHorizontal="15dp" />
 
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+    <com.facebook.yoga.android.YogaLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/material_amber_500"
+        yoga:yg_borderHorizontal="15dp"
+        yoga:yg_borderVertical="15dp">
 
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?metaButtonBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/material_purple_accent_200"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/material_blue_500" />
+    </com.facebook.yoga.android.YogaLayout>
 
-            <Button
-                android:id="@+id/dummy_button"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
+    <com.facebook.yoga.android.YogaLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/material_brown_500"
+        yoga:yg_paddingHorizontal="15dp"
+        yoga:yg_paddingVertical="15dp">
 
-        </LinearLayout>
-    </FrameLayout>
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/material_blue_500" />
+    </com.facebook.yoga.android.YogaLayout>
 
-</FrameLayout>
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/material_blue_500" />
+
+
+</com.facebook.yoga.android.YogaLayout>
