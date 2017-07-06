@@ -3,6 +3,7 @@ package com.j1j2.pifalao.features.launcher
 import com.hannesdorfmann.mosby3.mvi.MviBasePresenter
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 /**

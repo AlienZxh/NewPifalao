@@ -27,8 +27,8 @@ allprojects {
     ext {
         //android
         ApplicationId = 'com.j1j2.pifalao'
-        VersionCode = 17
-        VersionName = "0.1.7"
+        VersionCode = 78
+        VersionName = "5.5.0"
         apkname = "pifalao"
 
         // Sdk and tools

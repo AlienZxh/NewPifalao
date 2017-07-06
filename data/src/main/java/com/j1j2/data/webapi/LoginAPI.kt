@@ -13,6 +13,6 @@ import retrofit2.http.POST
  * Created by albertz on 17-7-4.
  */
 interface LoginAPI{
-    @POST("UserLogin/Login")
+    @POST("v601/UserLogin/Login")
     fun login(@Body loginBody: LoginBody): Single<WebReturn<LoginResponse>>
 }

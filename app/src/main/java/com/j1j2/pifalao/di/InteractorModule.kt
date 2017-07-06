@@ -12,8 +12,8 @@ import javax.inject.Singleton
 /**
  * Created by albertz on 17-7-5.
  */
-@Module(subcomponents = arrayOf(LauncherComponent::class))
-abstract class InteractorModule {
+@Module
+class InteractorModule {
 
     @Provides
     @Singleton
@@ -22,10 +22,6 @@ abstract class InteractorModule {
     @Provides
     @Singleton
     fun provideLogState(): LogState = LogState.instance
-
-    @Binds
-    @Singleton
-    abstract fun provideLogStateInteractor(logStateInteractor: LogStateInteractor): LogStateInteractor
 
 
 }

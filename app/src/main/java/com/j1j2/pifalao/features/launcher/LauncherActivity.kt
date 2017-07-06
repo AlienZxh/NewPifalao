@@ -1,6 +1,7 @@
 package com.j1j2.pifalao.features.launcher
 
 import android.content.Intent
+import android.widget.Toast
 import com.j1j2.common.base.BaseMviActivity
 import com.j1j2.data.interactor.LogStateInteractor
 import com.j1j2.data.webapi.body.LoginBody
@@ -23,13 +24,15 @@ class LauncherActivity : BaseMviActivity<LauncherView, LauncherPresenter>(), Lau
 
     override fun createPresenter(): LauncherPresenter = lacuncher
 
-    override fun loadLogState(): Observable<Boolean> = logStateInteractor.login(LoginBody("", "")).toObservable()
+    override fun loadLogState(): Observable<Boolean> = logStateInteractor.login(LoginBody("15200348636", "123456"))
 
     override fun render(state: LauncherViewState) {
         when (state) {
             is LauncherViewState.LoginStateView -> {
+                Toast.makeText(this, "登陆成功", Toast.LENGTH_LONG).show()
             }
             is LauncherViewState.LogoutStateView -> {
+                Toast.makeText(this, "登陆失败", Toast.LENGTH_LONG).show()
             }
         }
     }
