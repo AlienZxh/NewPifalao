@@ -1,5 +1,6 @@
 package com.j1j2.pifalao
 
+import android.content.Context
 import com.blankj.utilcode.util.EmptyUtils
 import com.facebook.stetho.Stetho
 
@@ -11,10 +12,10 @@ class DebugApp : App() {
     override fun onCreate() {
         super.onCreate()
         if (!EmptyUtils.isEmpty(processName) && processName.equals(applicationContext.packageName))
-            initStetho()
+            initStetho(this)
     }
 
-    private fun initStetho() {
-        Stetho.initializeWithDefaults(this)
+    private fun initStetho(context: Context) {
+        Stetho.initializeWithDefaults(context)
     }
 }

@@ -24,6 +24,8 @@ import com.shizhefei.view.coolrefreshview.header.MaterialHeader
 import com.shizhefei.view.coolrefreshview.PullHeader
 import com.shizhefei.view.coolrefreshview.IPullHeaderFactory
 import com.shizhefei.view.coolrefreshview.CoolRefreshView
+import io.reactivex.Observable
+import io.reactivex.ObservableSource
 
 
 /**
@@ -39,48 +41,56 @@ open class App : DaggerApplication() {
         MultiDex.install(this)
     }
 
+    fun debugInitObservable(): Iterable<ObservableSource<*>>? = null
+
     override fun onCreate() {
         super.onCreate()
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return
         }
-        initLeakCanary()
-        initUtils()
+        initLeakCanary(this)
+        initUtils(this)
         processName = getForegroundProcessName()
         if (!isEmpty(processName) && processName.equals(applicationContext.packageName)) {
-            SoLoader.init(this, false)
-            initBugly()
-            initARouter()
-            initCoolRefreshView()
+            initSoLoader(this)
+            initBugly(this)
+            initARouter(this)
+            initCoolRefreshView(this)
         }
+
+
+
     }
 
-    private fun initLeakCanary() {
-        refWatcher = if (BuildConfig.DEBUG) LeakCanary.install(applicationContext as Application) else RefWatcher.DISABLED
+    private fun initLeakCanary(context: Context) {
+        refWatcher = if (BuildConfig.DEBUG) LeakCanary.install(context as Application) else RefWatcher.DISABLED
     }
 
-    private fun initBugly() {
+    private fun initUtils(context: Context) {
+        Utils.init(context)
+    }
+
+    private fun initSoLoader(context: Context) = SoLoader.init(context, false)
+
+    private fun initBugly(context: Context) {
         Beta.autoInit = true
         Beta.autoCheckUpgrade = true
         Beta.storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)//设置sd卡的Download为更新资源存储目录
         val strategy = BuglyStrategy()
         strategy.appChannel = if (BuildConfig.DEBUG) "jpos-debug" else "jpos"
-        Bugly.init(applicationContext, Constants.BUGLY_ID, BuildConfig.DEBUG, strategy)
+        Bugly.init(context, Constants.BUGLY_ID, BuildConfig.DEBUG, strategy)
     }
 
-    private fun initUtils() {
-        Utils.init(this)
-    }
 
-    private fun initARouter() {
+    private fun initARouter(context: Context) {
         if (BuildConfig.DEBUG) {
             ARouter.openLog()
             ARouter.openDebug()
         }
-        ARouter.init(this)
+        ARouter.init(context as Application)
     }
 
-    private fun initCoolRefreshView() {
+    private fun initCoolRefreshView(context: Context) {
         CoolRefreshView.setPullHeaderFactory(object : IPullHeaderFactory {
             override fun made(context: Context): PullHeader {
                 return MaterialHeader(context)

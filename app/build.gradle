@@ -48,8 +48,8 @@ android {
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            buildConfigField "String", "API_URL", "\"http://m.jpos.j1j2.cn/v6/\""
-            buildConfigField "String", "IMAGE_URL", "\"http://m.jpos.j1j2.cn\""
+            buildConfigField "String", "API_URL", "\"http://api.pifalao.com\""
+            buildConfigField "String", "IMAGE_URL", "\"http://api.pifalao.com\""
         }
 
         release {
@@ -59,8 +59,8 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            buildConfigField "String", " API_URL", "\"http://m.jpos.j1j2.cn/v6/\""
-            buildConfigField "String", "IMAGE_URL", "\"http://m.jpos.j1j2.cn\""
+            buildConfigField "String", " API_URL", "\"http://api.pifalao.com\""
+            buildConfigField "String", "IMAGE_URL", "\"http://api.pifalao.com\""
         }
     }
 
