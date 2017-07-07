@@ -1,7 +1,7 @@
 package com.j1j2.common.base
 
+import android.app.Activity
 import android.os.Bundle
-import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
 import com.gyf.barlibrary.ImmersionBar
 import com.hannesdorfmann.mosby3.mvi.MviActivity
@@ -14,13 +14,15 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasFragmentInjector
 import dagger.android.support.HasSupportFragmentInjector
 import dmax.dialog.SpotsDialog
+import org.jetbrains.anko.AnkoComponent
+import org.jetbrains.anko.setContentView
 import javax.inject.Inject
 
 
 /**
  * Created by albertz on 17-6-28.
  */
-abstract class BaseMviActivity<V : MvpView, P : MviPresenter<V, *>> : MviActivity<V, P>(), HasFragmentInjector, HasSupportFragmentInjector {
+abstract class BaseMviActivity<UI : AnkoComponent<Activity>, V : MvpView, P : MviPresenter<V, *>> : MviActivity<V, P>(), HasFragmentInjector, HasSupportFragmentInjector {
     protected val TAG = this.javaClass.simpleName
 
     @Inject
@@ -30,8 +32,11 @@ abstract class BaseMviActivity<V : MvpView, P : MviPresenter<V, *>> : MviActivit
 
     private val progressDialog: SpotsDialog by lazy { SpotsDialog(this) }
 
-    @LayoutRes
-    protected abstract fun layoutId(): Int
+    protected abstract fun createUI(): UI
+
+    val ui: UI by lazy {
+        createUI()
+    }
 
     protected fun immersionBar(): ImmersionBar = ImmersionBar.with(this).statusBarColor(R.color.colorPrimaryDark).fitsSystemWindows(true)  //使用该属性必须指定状态栏的颜色，不然状态栏透明，很难看
 
@@ -39,7 +44,7 @@ abstract class BaseMviActivity<V : MvpView, P : MviPresenter<V, *>> : MviActivit
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         immersionBar().init()
-        setContentView(layoutId())
+        ui.setContentView(this)
     }
 
     override fun onDestroy() {

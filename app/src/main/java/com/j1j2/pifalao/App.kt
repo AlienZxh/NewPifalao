@@ -18,7 +18,6 @@ import com.tencent.bugly.BuglyStrategy
 
 import com.tencent.bugly.Bugly
 import com.alibaba.android.arouter.launcher.ARouter
-import com.facebook.soloader.SoLoader
 import com.j1j2.pifalao.di.DaggerAppComponent
 import com.shizhefei.view.coolrefreshview.header.MaterialHeader
 import com.shizhefei.view.coolrefreshview.PullHeader
@@ -52,7 +51,6 @@ open class App : DaggerApplication() {
         initUtils(this)
         processName = getForegroundProcessName()
         if (!isEmpty(processName) && processName.equals(applicationContext.packageName)) {
-            initSoLoader(this)
             initBugly(this)
             initARouter(this)
             initCoolRefreshView(this)
@@ -69,8 +67,6 @@ open class App : DaggerApplication() {
     private fun initUtils(context: Context) {
         Utils.init(context)
     }
-
-    private fun initSoLoader(context: Context) = SoLoader.init(context, false)
 
     private fun initBugly(context: Context) {
         Beta.autoInit = true

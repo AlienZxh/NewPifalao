@@ -1,8 +1,8 @@
 package com.j1j2.common.base
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,28 +14,31 @@ import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector
+import org.jetbrains.anko.AnkoComponent
+import org.jetbrains.anko.AnkoContext
 import javax.inject.Inject
 
 
 /**
  * Created by albertz on 17-6-28.
  */
-abstract class BaseMviFragment<V : MvpView, P : MviPresenter<V, *>> : MviFragment<V, P>(), HasSupportFragmentInjector {
+abstract class BaseMviFragment<UI : AnkoComponent<Fragment>, V : MvpView, P : MviPresenter<V, *>> : MviFragment<V, P>(), HasSupportFragmentInjector {
     @Inject
     internal lateinit var childFragmentInjector: DispatchingAndroidInjector<Fragment>
 
-    @LayoutRes
-    protected abstract fun layoutId(): Int
+    protected abstract fun createUI(): UI
+
+    val ui: UI by lazy {
+        createUI()
+    }
 
     override fun onAttach(context: Context?) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
 
-
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View?
-            = inflater!!.inflate(layoutId(), container, false)
-
+            = ui.createView(AnkoContext.Companion.create(context, this))
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = this.childFragmentInjector
 
